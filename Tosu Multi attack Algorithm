@@ -1,15 +1,5 @@
-/* Hit Roller */
-Start
-iattackcount = 0
-Print: How many attacks ar eyou making?
-Input = iattacknumber
-For iattackcount to iattacknumber
-  Roll 2d20 Plus @Tosu|STR + @Tosu|Proficiency + @Koryu Glaive|Magic Bonus + Global Hit Mods
-  Print Results
-
-/* Damage Roller */
-Start
 /* Delcaring vairables */
+iattackcount = 0
 ihitcount = 0
 icritcount = 0
 icantripcount = 0
@@ -25,7 +15,16 @@ icritsecondarydamage = array
 icantripdamage = array
 icantripcritdamage = array
 
-/* Taking inputs */
+/* Hit Roller */
+Start
+Print: How many attacks ar eyou making?
+Input = iattacknumber
+For iattackcount to iattacknumber
+  Roll 2d20 Plus @Tosu|STR + @Tosu|Proficiency + @Koryu Glaive|Magic Bonus + Global Hit Mods
+  Print Results
+
+/* Damage Roller, taking inputs */
+Start
 Print: How many Attacks have hit?
 Input = iweaponhits
 Print: How many Booming Blades hit?
