@@ -1,0 +1,65 @@
+/* Hit Roller */
+Start
+iattackcount = 0
+Print: How many attacks ar eyou making?
+Input = iattacknumber
+For iattackcount to iattacknumber
+  Roll 2d20 Plus @Tosu|STR + @Tosu|Proficiency + @Koryu Glaive|Magic Bonus + Global Hit Mods
+  Print Results
+
+/* Damage Roller */
+Start
+/* Delcaring vairables */
+ihitcount = 0
+icritcount = 0
+icantripcount = 0
+
+imaindamagetotal = 0
+isecondarydamagetotal = 0
+icantripdamagetotal = 0
+
+imaindamage = array
+isecondarydamage = array
+icritmaindamage = array
+icritsecondarydamage = array
+icantripdamage = array
+icantripcritdamage = array
+
+/* Taking inputs */
+Print: How many Attacks have hit?
+Input = iweaponhits
+Print: How many Booming Blades hit?
+Input = icantriphits
+Print: How many attacks were critical hits?
+Input = icrithits
+
+/* Rolling and Totaling Damage */
+For ihitcount to iweaponhits
+  imaindamage(ihitcount) = Roll Koryu Glaive Damage + Global Damage Mods
+  isecondarydamage(ihitcount) - Roll Koryu Glaive Secondary Damage type
+  imaindamagetotal = imaindamagetotal + imaindamage(ihitcount)
+  isecondarydamagetotal = isecondarydamagetotal + isecondarydamage(ihitcount)
+  Print: imaindamage(ihitcount) KoryuGlaive primarydamagetype 
+  Print: isecondarydamage(ihitcount) KoryuGlaive secondarydamagetype
+  Print: imaindamagetotal "total " KoryuGlaive|Primarydamagetype "Damamge so far..."
+  Print: isecondarydamagetotal "total " KoryuGlaive|secondarydamagetype "Damage so far..."
+
+For icritcount to icrithits
+  icritmaindamage(icritcount) = Roll Koryu Glaive Primary Damage Crit
+  icritsecondarydamage(icritcount) = Roll Koryu Glaive Secondary Damage Crit
+  imaincritdamagetotal =  imaincritdamagetotal + icritmaindamage(icritcount)
+  isecondarycritdamagetotal =  isecondarycritdamagetotal + icritsecondarydamage(icritcount)
+
+For icantripcount to icantriphits
+  icantripdamage(icantripcount) = Roll Cantrip Damage
+  icantripcritdamage(icantripcount) = Roll Cantrip Damage
+  icantripdamagetotal = icantripdamagetotal + icantripdamage(icantripcount)
+  Print: icantripdamage(icantripcount) Cantrip Damage type with another icantripcritdamage(icantripcount) on a critical hit
+
+/* Summary */
+Print: "In Total Tosu has inflicted:"
+Print: imaindamagetotal + imaincritdamagetotal KoryuGlaive|Primarydamagetype " damage"
+Print: isecondarydamagetotal + isecondarycritdamagetotal KoryuGlaive|Secondarydamagetype " damage"
+Print: "and  " icantripdamagetotal cantripdamagetype "damage"
+
+END
