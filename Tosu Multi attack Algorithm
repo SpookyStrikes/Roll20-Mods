@@ -60,6 +60,7 @@ For icantripcount to icantriphits
 Print: "In Total Tosu has inflicted:"
 Print: imaindamagetotal + imaincritdamagetotal KoryuGlaive|Primarydamagetype " damage"
 Print: isecondarydamagetotal + isecondarycritdamagetotal KoryuGlaive|Secondarydamagetype " damage"
-Print: "and  " icantripdamagetotal cantripdamagetype "damage"
+Print: "and  " icantripdamagetotal cantripdamagetype "damage (not including critical damage)"
+Print: "In total, Tosu did " imaindamagetotal + imaincritdamagetotal + isecondarydamagetotal + isecondarycritdamagetotal + icantripdamagetotal " damage with this action."
 
 END
